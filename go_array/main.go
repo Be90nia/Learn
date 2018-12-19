@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 func main() {
+	//数组的声明
 	var array1 [4]int = [4]int{1, 3}
 	fmt.Println(len(array1))
 	fmt.Println(array1)
@@ -31,4 +32,27 @@ func main() {
 	var array5 = &array
 	fmt.Printf("%p\n", array)
 	fmt.Printf("%p\n", array5)
+
+	//多维数组
+	var arrays [2][2]int = [2][2]int{{1, 2}, {3, 4}}
+	fmt.Println(arrays)
+
+	var arrays1 [][2]int = [][2]int{{1, 2}, {3, 4}, {5, 6}}
+	fmt.Println(arrays1)
+
+	arrays2 := [][2]int{{1, 2}, {3, 4}, {5, 6}}
+	fmt.Println(arrays2)
+
+	//数组比较(需要比较)
+	var a [2]int
+	var b [2]int
+	if a == b {
+		fmt.Println("a和b数组相等")
+	}
+	if a != b {
+		fmt.Println("a和b数组不相等")
+	}
+
+	var array6 [4]int = [4]int{0: 1, 2: 4}
+	fmt.Println(array6)
 }
