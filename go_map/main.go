@@ -30,5 +30,7 @@ func main() {
 	fmt.Println(myvar, ok)
 	_, ok = mymap3["four"] // _为占位符
 	fmt.Println(ok)
-	//
+	//映射删除
+	delete(mymap3, "one")
+	fmt.Println(mymap3)
 }
