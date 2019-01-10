@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"io/ioutil"
+)
 
 func main() {
 	//if条件判断语句
@@ -58,6 +61,12 @@ func main() {
 	newmap := map[string]int{"one": 1, "two": 2}
 	for i, val := range newmap {
 		fmt.Printf("%s: %d\n", i, val)
+	}
+	var filname string = "abc.txt"
+	if contents, err := ioutil.ReadFile(filname); err == nil {
+		fmt.Println(string(contents))
+	} else {
+		fmt.Println("cannot print file contents:", err)
 	}
 
 }
