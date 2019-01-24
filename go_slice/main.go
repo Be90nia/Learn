@@ -2,6 +2,15 @@ package main
 
 import "fmt"
 
+//数组是传入函数中是以值传递的方式,如果想在函数中修改数组元素要么使用数组指针传递,或者是使用切片进行传递
+func updateArray(array [8]int) {
+	array[0] = 100
+}
+
+func updateSlice(array []int) {
+	array[0] = 100
+}
+
 //切片
 func main() {
 	var slice []int
@@ -11,8 +20,19 @@ func main() {
 	//切片初始化
 	//切片名字 = 数组名[开始位置:结束位置]
 
-	array := [8]int{1, 2, 3, 4, 5, 6, 7, 8}
+	array := [8]int{0, 1, 2, 3, 4, 5, 6, 7}
+	updateArray(array)
+	fmt.Println("array", array)
 	slice = array[:]
+
+	updateSlice(slice)
+	fmt.Println("slice", array)
+
+	s1 := array[2:6] // 2,3,4,5
+	fmt.Println("s1:", s1)
+	s2 := s1[3:5] // 5,6 sile是可以向后扩展,但是不能超过数组长度,sile不能向前扩展
+	fmt.Println("s2:", s2)
+
 	fmt.Printf("len:%d, cap:%d\n", len(slice), cap(slice))
 	fmt.Println(slice)
 	slice = array[4:8]
@@ -58,4 +78,18 @@ func main() {
 	copy(slice3, slice4)
 	fmt.Println(slice3)
 	fmt.Println(slice4)
+
+	delete_sile()
+}
+
+func delete_sile() {
+	slice := []int{2, 3, 4, 5, 6}
+	var slice1 = make([]int, 16)
+	fmt.Println(slice1)
+	copy(slice1, slice)
+	fmt.Println("copy sile")
+	fmt.Println(slice1)
+	fmt.Println("deleting elements from slice")
+	slice1 = append(slice1[:3], slice1[4:]...)
+	fmt.Println(slice1)
 }
