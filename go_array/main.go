@@ -21,6 +21,10 @@ func main() {
 	for i := 0; i < len(array); i++ {
 		array[i] = i
 	}
+	//for + range 的方法类似foreach,若只需要获取下标而不需要值就可以写成 i,_ 反之则 _,v
+	for i, v := range array3 {
+		fmt.Println(i, v)
+	}
 	fmt.Println(len(array))
 	fmt.Println(array)
 	//指针传递,不会产生多余的内存

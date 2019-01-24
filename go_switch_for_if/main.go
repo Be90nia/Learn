@@ -23,6 +23,8 @@ func main() {
 		fmt.Printf("i = %#v\n", i)
 	case 2:
 		fmt.Printf("i = %#v\n", i)
+	default:
+		panic(fmt.Sprintf("Wrong!!", i)) //panic 函数会中断函数运行报错
 	}
 	//switch 第二种用法
 	i = 3
