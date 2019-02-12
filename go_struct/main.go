@@ -60,4 +60,6 @@ func main() {
 	stu2 = persons{&stu1, "李四", "男", 31, &stu3}
 	stu3 = persons{&stu2, "王五", "男", 33, nil}
 	fmt.Printf("%#v\n", stu2)
+
+	TreeNodeTest1()
 }

@@ -43,4 +43,8 @@ func main() {
 	mymap4["map1"] = submap
 	mymap4["map2"] = map[string]int32{"one": 1, "two": 2}
 	fmt.Println(mymap4)
+	fmt.Println(LengthOfNonRepeatingSubStr("abcabcbb"))
+	fmt.Println(LengthOfNonRepeatingSubStr("是硕士双宿双飞"))
+
+	StringText()
 }
