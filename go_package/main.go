@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"./tree"
+	"golang.org/x/tools/container/intsets"
 )
 
 type myTreeNode struct {
@@ -21,6 +22,15 @@ func (myNode *myTreeNode) postOrder() {
 	myNode.node.Print()
 }
 
+func testSparse() {
+	s := intsets.Sparse{}
+	s.Insert(1)
+	s.Insert(1000)
+	s.Insert(1000000)
+	fmt.Println(s.Has(1000))
+	fmt.Println(s.Has(10000))
+}
+
 func main() {
 	var root tree.Node
 
@@ -36,4 +46,5 @@ func main() {
 	myRoot := myTreeNode{&root}
 	myRoot.postOrder()
 
+	testSparse()
 }
