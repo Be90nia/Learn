@@ -1,4 +1,4 @@
-package main
+package fib
 
 import (
 	"bufio"
@@ -8,7 +8,7 @@ import (
 )
 
 //斐波那契数列
-func fibonacci() func() int {
+func Fibonacci() func() int {
 	a, b := 0, 1
 	return func() int {
 		a, b = b, a+b
@@ -42,18 +42,18 @@ func printFileContents(reader io.Reader) {
 	}
 }
 
-func main() {
-	// f := fibonacci()
+// func main() {
+// 	// f := Fibonacci()
 
-	// fmt.Println(f())
-	// fmt.Println(f())
-	// fmt.Println(f())
-	// fmt.Println(f())
-	// fmt.Println(f())
-	// fmt.Println(f())
-	// fmt.Println(f())
-	// fmt.Println(f())
+// 	// fmt.Println(f())
+// 	// fmt.Println(f())
+// 	// fmt.Println(f())
+// 	// fmt.Println(f())
+// 	// fmt.Println(f())
+// 	// fmt.Println(f())
+// 	// fmt.Println(f())
+// 	// fmt.Println(f())
 
-	f := fibonacci2()
-	printFileContents(f)
-}
+// 	f := fibonacci2()
+// 	printFileContents(f)
+// }
