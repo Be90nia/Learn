@@ -1,4 +1,4 @@
-package main
+package _defer
 
 import (
 	"bufio"
@@ -24,9 +24,9 @@ func tryDefer() {
 	// fmt.Println(3)
 	// panic("error occurred")
 	// fmt.Println(4)
-	for i := 0; i <100; i++{
+	for i := 0; i < 100; i++ {
 		defer fmt.Println(i)
-		if i == 30{
+		if i == 30 {
 			panic("printed too many")
 		}
 	}
@@ -38,10 +38,35 @@ func writeFile(filename string) {
 	if err != nil {
 		panic(err)
 	}
-	defer file.Close()//函数运行完毕后释放内存
+	defer file.Close() //函数运行完毕后释放内存
 
 	writer := bufio.NewWriter(file) //创建文件写入
-	defer writer.Flush()//函数运行完毕后将数据写入到文件中
+	defer writer.Flush()            //函数运行完毕后将数据写入到文件中
+
+	f := fib.Fibonacci()
+	for i := 0; i < 20; i++ {
+		fmt.Fprintln(writer, f())
+	}
+}
+
+func openFile(filename string) {
+	file, err := os.OpenFile(filename, os.O_EXCL|os.O_CREATE, 0666)
+	//err = errors.New("this is a custom error")
+	if err != nil {
+		if pathError, ok := err.(*os.PathError); !ok {
+			panic(err)
+		} else {
+			fmt.Printf("Op:%s, Path:%s, Err:%s\n",
+				pathError.Op,
+				pathError.Path,
+				pathError.Err)
+		}
+		return
+	}
+	defer file.Close() //函数运行完毕后释放内存
+
+	writer := bufio.NewWriter(file) //创建文件写入
+	defer writer.Flush()            //函数运行完毕后将数据写入到文件中
 
 	f := fib.Fibonacci()
 	for i := 0; i < 20; i++ {
@@ -50,8 +75,9 @@ func writeFile(filename string) {
 }
 
 func main() {
-	tryDefer()
+	//tryDefer()
 	writeFile("fib.txt")
+	openFile("fib.txt")
 }
 
 //defer 常见的defer调用
