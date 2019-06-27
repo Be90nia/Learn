@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 )
+//函数式编程
 //创建一个错误处理函数
 type appHandler func(writer http.ResponseWriter, request *http.Request) error
 //创建用户可以查看的报错信息接口
