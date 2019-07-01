@@ -1,0 +1,4 @@
+//代码的性能测试可以通过控制台生成的文件进行查看
+//打开控制台使用go test -bench . -cpuprofile cpu.out (生的就是一个二进制的数据分析文件)
+//通过go tool pprof cpu.out可以进行文件的查看
+//pprof 可以做各种性能测试的统计

@@ -18,6 +18,7 @@ type userError interface {
 func errWrapper(
 	handler appHandler) func(http.ResponseWriter, *http.Request) {
 	return func(writer http.ResponseWriter, request *http.Request) {
+		//panic error
 		defer func() {
 			//使用recover进行 panic 的错误信息进行处理
 			if r := recover(); r != nil{
@@ -34,10 +35,13 @@ func errWrapper(
 			log.Printf("Error handling request: %s", err.Error())
 			//如果错误信息是userError类型的,则返回错误代码给用户查看
 			//接口的类型会自动识别类型
+			//user error
 			if userErr ,ok := err.(userError); ok{
 				http.Error(writer,userErr.Message(),http.StatusBadRequest)
 				return
 			}
+
+			// system error
 			code := http.StatusOK
 			switch {
 			case os.IsNotExist(err):
