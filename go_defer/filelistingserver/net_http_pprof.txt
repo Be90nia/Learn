@@ -1,0 +1,3 @@
+_"net/http/pprof" //添加下划线可以防止被go语言删去引用库，添加下划线可以load该库的帮助程序过来
+localhost:端口/debug/pprof/就能访问查看性能
+go tool pprof http://localhost:端口/debug/pprof/profile 可以查看30秒内cpu的使用率

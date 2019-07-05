@@ -4,6 +4,7 @@ import (
 	"code/learn/go_defer/filelistingserver/filelisting"
 	"log"
 	"net/http"
+	_"net/http/pprof" //添加下划线可以防止被go语言删去引用库，添加下划线可以load该库的帮助程序过来
 	"os"
 )
 //函数式编程
