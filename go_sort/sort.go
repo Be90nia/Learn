@@ -114,7 +114,6 @@ func SortInt64(arr []int64) []int64 {
 	return arr
 }
 
-
 func SortUInt(arr []uint) []uint {
 	len := len(arr)
 	change := true
@@ -200,7 +199,7 @@ func SortUInt64(arr []uint64) []uint64 {
 	return arr
 }
 
-func SortFloat32(arr []float32)  []float32{
+func SortFloat32(arr []float32) []float32 {
 	len := len(arr)
 	change := true
 	for i := 0; i < len-1 && change; i++ {
@@ -217,7 +216,7 @@ func SortFloat32(arr []float32)  []float32{
 	return arr
 }
 
-func SortFloat64(arr []float64)  []float64{
+func SortFloat64(arr []float64) []float64 {
 	len := len(arr)
 	change := true
 	for i := 0; i < len-1 && change; i++ {
@@ -233,8 +232,9 @@ func SortFloat64(arr []float64)  []float64{
 	}
 	return arr
 }
+
 //鸡尾酒排序
-func  CocktailSort(arr []int) []int {
+func CocktailSort(arr []int) []int {
 	len := len(arr)
 	left := 0
 	j := 0
