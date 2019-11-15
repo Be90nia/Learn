@@ -12,3 +12,4 @@ debug
 *.out
 .vscode
 .idea
+*.iml
